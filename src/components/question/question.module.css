@@ -1,6 +1,7 @@
 .question {
+  height: 30vh;
   display: block;
-  margin-bottom: 10px;
-  color: blueviolet;
+  align-items: center;
+
  
 }

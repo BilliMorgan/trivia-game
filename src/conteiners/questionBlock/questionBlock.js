@@ -1,30 +1,43 @@
 import React, { Component } from "react";
 import Question from "../../components/question/question";
-import Answer from "../../components/answerOption/answerOption";
+import Answer from "../../components/answerOptions/answerOptions";
 import Counter from "../../components/counter/counter";
+import Correctansweroption from "../../components/correctAnswerOption/correctAnswerOption";
+import Finalscore from "../../components/finalScore/finalScore";
+import Start from "../../components/start/start"
 import classes from "./questionBlock.module.css";
 import data from "../../assets/Apprentice_TandemFor400_Data.json";
 
 class QuestionBlock extends Component {
   state = {
-    question: "",
-    allOptions: [],
-    correct: "",
-    questionId: [1],
-    correctAnswers: 0,
+    // question: "",
+    // answerOptions: [],
+    // correct: "",
+    // questionId: [],
+    // correctAnswers: 0,
+    // showCorrectAnswer: false,
+    // showResult: false,
+    startGame: true
   };
 
-  componentDidMount() {
-    const incorrectAnswers = data[0].incorrect;
-    const correctAnswer = data[0].correct;
-    incorrectAnswers.push(correctAnswer);
-    const allOptions = this.shuffleArray(incorrectAnswers);
-    this.setState({
-      question: data[this.state.questionId].question,
-      allOptions: allOptions,
-      correct: data[this.state.questionId].correct,
-    });
-  }
+  // componentDidMount = () => {
+  //   const questionNumber = this.generateRandom(
+  //     0,
+  //     data.length,
+  //     this.state.questionId
+  //   );
+  //   const incorrectAnswers = data[questionNumber].incorrect;
+  //   const correctAnswer = data[questionNumber].correct;
+  //   incorrectAnswers.push(correctAnswer);
+  //   const answers = this.shuffleArray(incorrectAnswers);
+  //   const updatedAnswerCount = [...this.state.questionId, questionNumber];
+  //   this.setState({
+  //     question: data[questionNumber].question,
+  //     answerOptions: answers,
+  //     correct: data[questionNumber].correct,
+  //     questionId: updatedAnswerCount,
+  //   });
+  // };
   shuffleArray = (array) => {
     let currentIndex = array.length,
       temporaryValue,
@@ -42,52 +55,123 @@ class QuestionBlock extends Component {
     return array;
   };
 
-  generateRandom(min, max, failOn) {
+  generateRandom = (min, max, failOn) => {
+    let index = max - 1;
     failOn = Array.isArray(failOn) ? failOn : [failOn];
-    let num = Math.floor(Math.random() * (max - min + 1)) + min;
+    let num = Math.floor(Math.random() * (index - min + 1)) + min;
     return failOn.includes(num) ? this.generateRandom(min, max, failOn) : num;
-  }
+  };
 
-  
-  setNextQuestion() {
-    const questionNumber = this.generateRandom(
-      1,
-      data.length,
-      this.state.questionId
-      );
+  checkAnswer = (event) => {
+    if (event.target.outerText === this.state.correct) {
       this.setState({
-        question: data[questionNumber].question,
-        correct: data[questionNumber].correct,
+        correctAnswers: this.state.correctAnswers + 1,
+        showCorrectAnswer: true,
+      });
+    } else {
+      this.setState({
+        showCorrectAnswer: true,
       });
     }
-    
-    handleAnswerSelected(event) {
-      // this.setUserAnswer(event.target.value);
-  
-      setTimeout(() => this.setNextQuestion(), 1000);
+  };
+
+  nextQuestion = () => {
+    console.log(this.state.questionId);
+    if (this.state.questionId.length < 10) {
+      const questionNumber = this.generateRandom(
+        0,
+        data.length,
+        this.state.questionId
+      );
+      console.log(questionNumber);
+      const incorrectAnswers = data[questionNumber].incorrect;
+      // console.log(data.length)
+
+      const correctAnswer = data[questionNumber].correct;
+      incorrectAnswers.push(correctAnswer);
+      const answers = this.shuffleArray(incorrectAnswers);
+      const updatedAnswerCount = [...this.state.questionId, questionNumber];
+
+      this.setState({
+        question: data[questionNumber].question,
+        answerOptions: answers,
+        correct: data[questionNumber].correct,
+        showCorrectAnswer: false,
+        questionId: updatedAnswerCount,
+      });
+    } else {
+      this.setState({
+        showResult: true,
+      });
     }
-  // setUserAnswer(answer) {
-  //   const updatedAnswerCount = { ...this.state };
-  // }
+  };
+
+  resetState = () => {
+    const questionNumber = this.generateRandom(
+      0,
+      data.length,
+      this.state.questionId
+    );
+    const incorrectAnswers = data[questionNumber].incorrect;
+    const correctAnswer = data[questionNumber].correct;
+    incorrectAnswers.push(correctAnswer);
+    const answers = this.shuffleArray(incorrectAnswers);
+    // const updatedAnswerCount = [...this.state.questionId, questionNumber];
+    const initReset = {
+      question: data[questionNumber].question,
+      answerOptions: answers,
+      correct: data[questionNumber].correct,
+      questionId: [questionNumber],
+      correctAnswers: 0,
+      showCorrectAnswer: false,
+      showResult: false,
+      startGame: false
+    };
+    this.setState(initReset);
+  };
+
+
 
   render() {
-    console.log(this.state);
+    // console.log(this.state.correctAnswers);
     return (
-      <div className={classes.questionBlock}>
-        <Counter counter={this.state.counter} />
-        <Question question={this.state.question} />
-        {this.state.allOptions.map((answer) => (
-          <Answer
-            answer={answer}
-            key={answer}
-            clicked={this.handleAnswerSelected}
-          />
-        ))}
-
-        {/* <div> Submit</div> */}
-
-        <div>Next</div>
-      </div>
+      <>
+        <div>
+          {this.state.startGame ? (
+            <Start clicked={this.resetState} />
+          ) : (
+            <div>
+              {this.state.showResult ? (
+                <Finalscore
+                  score={this.state.correctAnswers}
+                  clicked={this.resetState}
+                />
+              ) : (
+                <div 
+                className={classes.questionBlock}
+                >
+                  <Counter counter={this.state.questionId.length} />
+                  <Question question={this.state.question} />
+                  {this.state.answerOptions.map((answer, index) => (
+                    <Answer
+                      answer={answer}
+                      clicked={this.checkAnswer}
+                      key={index}
+                      disabled={this.state.showCorrectAnswer}
+                    />
+                  ))}
+                  {this.state.showCorrectAnswer ? (
+                    <Correctansweroption
+                      correct={this.state.correct}
+                      clicked={this.nextQuestion}
+                    />
+                  ) : null}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </>
     );
   }
 }

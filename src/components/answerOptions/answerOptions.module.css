@@ -1,5 +1,22 @@
 .answer {
- border-top: 1px solid #eee;
+
+ background-color: rgb(48, 88, 89);
+ border: none;
+ color: black;
+ outline: none;
+ cursor: pointer;
+ font: inherit;
+ margin: 10px;
+ padding: 30px;
+ display: inline;
+
+ font-weight: bold;
+ 
+
+}
+.answer:disabled{
+    cursor: not-allowed;
+    color: cadetblue;
 }
 
 .answer:hover {

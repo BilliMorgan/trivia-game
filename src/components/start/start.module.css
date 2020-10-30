@@ -1,0 +1,21 @@
+.start {
+
+  margin: auto;
+  display: block;
+  width: 40%;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(210, 207, 207);
+  border-radius: 15px;
+  box-shadow: 0 7px 7px #ccc;
+  font-size: 1.5rem;
+  color: rgb(30, 45, 45);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  
+}
+.start:hover {
+  background-color: rgb(223, 225, 225);
+  box-shadow: 0 10px 7px #ccc;
+}

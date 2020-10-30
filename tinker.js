@@ -40,9 +40,10 @@
 // }
 
 function generateRandom(min, max, failOn) {
+  let y = max - 1
   failOn = Array.isArray(failOn) ? failOn : [failOn];
-  let num = Math.floor(Math.random() * (max - min + 1)) + min;
+  let num = Math.floor(Math.random() * (y - min + 1)) + min;
   return failOn.includes(num) ? generateRandom(min, max, failOn) : num;
 }
 
-
+console.log(generateRandom(0, 3, [1]))
