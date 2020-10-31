@@ -3,7 +3,10 @@ import classes from "./question.module.css";
 
 const question = (props) => {
   return (
-    <div className={classes.question}>The question is: {props.question}</div>
+    <div className={classes.question}>
+      <h4>The question is:</h4>
+      <h2>{props.question}</h2>
+    </div>
   );
 };
 

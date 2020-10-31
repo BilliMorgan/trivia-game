@@ -4,7 +4,7 @@ import Answer from "../../components/answerOptions/answerOptions";
 import Counter from "../../components/counter/counter";
 import Correctansweroption from "../../components/correctAnswerOption/correctAnswerOption";
 import Finalscore from "../../components/finalScore/finalScore";
-import Start from "../../components/start/start"
+import Start from "../../components/start/start";
 import classes from "./questionBlock.module.css";
 import data from "../../assets/Apprentice_TandemFor400_Data.json";
 
@@ -17,7 +17,7 @@ class QuestionBlock extends Component {
     // correctAnswers: 0,
     // showCorrectAnswer: false,
     // showResult: false,
-    startGame: true
+    startGame: true,
   };
 
   // componentDidMount = () => {
@@ -76,22 +76,20 @@ class QuestionBlock extends Component {
   };
 
   nextQuestion = () => {
-    console.log(this.state.questionId);
     if (this.state.questionId.length < 10) {
       const questionNumber = this.generateRandom(
         0,
         data.length,
         this.state.questionId
       );
-      console.log(questionNumber);
       const incorrectAnswers = data[questionNumber].incorrect;
-      // console.log(data.length)
-
+      console.log(incorrectAnswers)
+      console.log(data)
       const correctAnswer = data[questionNumber].correct;
       incorrectAnswers.push(correctAnswer);
       const answers = this.shuffleArray(incorrectAnswers);
       const updatedAnswerCount = [...this.state.questionId, questionNumber];
-
+        console.log(answers)
       this.setState({
         question: data[questionNumber].question,
         answerOptions: answers,
@@ -125,12 +123,10 @@ class QuestionBlock extends Component {
       correctAnswers: 0,
       showCorrectAnswer: false,
       showResult: false,
-      startGame: false
+      startGame: false,
     };
     this.setState(initReset);
   };
-
-
 
   render() {
     // console.log(this.state.correctAnswers);
@@ -147,9 +143,7 @@ class QuestionBlock extends Component {
                   clicked={this.resetState}
                 />
               ) : (
-                <div 
-                className={classes.questionBlock}
-                >
+                <div className={classes.questionBlock}>
                   <Counter counter={this.state.questionId.length} />
                   <Question question={this.state.question} />
                   {this.state.answerOptions.map((answer, index) => (

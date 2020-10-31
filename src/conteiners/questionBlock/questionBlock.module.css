@@ -1,10 +1,17 @@
-/* .questionBlock {
-  width: 90%;
-  margin: auto;
+.questionBlock {
   text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 20px;
+}
 
-} */
- 
+button {
+  width: 40%;
+  box-sizing: border-box;
+  border: 1px solid rgb(210, 207, 207);
+  border-radius: 15px;
+  box-shadow: 0 7px 7px #ccc;
+  outline: none;
+}
+button:hover:enabled {
+  background-color: rgb(223, 225, 225);
+  box-shadow: 0 10px 7px #ccc;
+  cursor: pointer;
+}

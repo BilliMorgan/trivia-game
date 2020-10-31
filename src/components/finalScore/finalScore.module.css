@@ -1,9 +1,9 @@
-.start {
+.finalScore {
   margin: auto;
   margin-top: 15%;
   padding: 20px;
   display: block;
-  width: 40%;
   font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
 }

@@ -1,14 +1,15 @@
-import React from "react"
-
+import React from "react";
+import classes from "./finalScore.module.css";
 
 const finalScore = (props) => {
-  return (<>
-    <div>Your score {props.score}</div>
-    <button onClick = {props.clicked}> Play again</button>
-    </>
-  )
-  
-  
-}
+  return (
+    <div className={classes.finalScore}>
+      <h4 className={classes.h4}>Your score is: {props.score}</h4>
+      <button className={classes.finalScore} onClick={props.clicked}>
+        Play again?
+      </button>
+    </div>
+  );
+};
 
 export default finalScore;
