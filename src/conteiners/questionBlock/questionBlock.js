@@ -10,13 +10,13 @@ import data from "../../assets/Apprentice_TandemFor400_Data.json";
 
 class QuestionBlock extends Component {
   state = {
-    // question: "",
-    // answerOptions: [],
-    // correct: "",
-    // questionId: [],
-    // correctAnswers: 0,
-    // showCorrectAnswer: false,
-    // showResult: false,
+    question: "",
+    answerOptions: [],
+    correct: "",
+    questionId: [],
+    correctAnswers: 0,
+    showCorrectAnswer: false,
+    showResult: false,
     startGame: true,
   };
 
@@ -75,6 +75,7 @@ class QuestionBlock extends Component {
     }
   };
 
+
   nextQuestion = () => {
     if (this.state.questionId.length < 10) {
       const questionNumber = this.generateRandom(
@@ -82,14 +83,15 @@ class QuestionBlock extends Component {
         data.length,
         this.state.questionId
       );
-      const incorrectAnswers = data[questionNumber].incorrect;
-      console.log(incorrectAnswers)
-      console.log(data)
-      const correctAnswer = data[questionNumber].correct;
-      incorrectAnswers.push(correctAnswer);
+
+      const array1 = []
+      const incorrectAnswers = array1
+        .concat(data[questionNumber].incorrect)
+      incorrectAnswers.push(data[questionNumber].correct);
       const answers = this.shuffleArray(incorrectAnswers);
       const updatedAnswerCount = [...this.state.questionId, questionNumber];
-        console.log(answers)
+      
+
       this.setState({
         question: data[questionNumber].question,
         answerOptions: answers,
@@ -110,11 +112,11 @@ class QuestionBlock extends Component {
       data.length,
       this.state.questionId
     );
-    const incorrectAnswers = data[questionNumber].incorrect;
-    const correctAnswer = data[questionNumber].correct;
-    incorrectAnswers.push(correctAnswer);
+    const array1 = [];
+    const incorrectAnswers = array1.concat(data[questionNumber].incorrect);
+    incorrectAnswers.push(data[questionNumber].correct);
     const answers = this.shuffleArray(incorrectAnswers);
-    // const updatedAnswerCount = [...this.state.questionId, questionNumber];
+
     const initReset = {
       question: data[questionNumber].question,
       answerOptions: answers,
@@ -124,6 +126,7 @@ class QuestionBlock extends Component {
       showCorrectAnswer: false,
       showResult: false,
       startGame: false,
+      
     };
     this.setState(initReset);
   };
