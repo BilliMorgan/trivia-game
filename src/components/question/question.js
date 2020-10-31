@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./question.module.css";
+import classes from "./Question.module.css";
 
 const question = (props) => {
   return (

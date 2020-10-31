@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./finalScore.module.css";
+import classes from "./FinalScore.module.css";
 
 const finalScore = (props) => {
   return (

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Question from "../../components/question/question";
-import Answer from "../../components/answerOptions/answerOptions";
-import Counter from "../../components/counter/counter";
-import Correctansweroption from "../../components/correctAnswerOption/correctAnswerOption";
-import Finalscore from "../../components/finalScore/finalScore";
-import Start from "../../components/start/start";
-import classes from "./questionBlock.module.css";
+import Question from "../../components/Question/Question";
+import Answer from "../../components/AnswerOptions/AnswerOptions";
+import Counter from "../../components/Counter/Counter";
+import Correctansweroption from "../../components/CorrectAnswerOption/CorrectAnswerOption";
+import Finalscore from "../../components/FinalScore/FinalScore";
+import Start from "../../components/Start/Start";
+import classes from "./QuestionsBlock.module.css";
 import data from "../../assets/Apprentice_TandemFor400_Data.json";
 
 class QuestionBlock extends Component {
@@ -91,7 +91,6 @@ class QuestionBlock extends Component {
       const answers = this.shuffleArray(incorrectAnswers);
       const updatedAnswerCount = [...this.state.questionId, questionNumber];
       
-
       this.setState({
         question: data[questionNumber].question,
         answerOptions: answers,

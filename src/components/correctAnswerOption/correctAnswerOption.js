@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./correctAnswerOption.module.css"
+import classes from "./CorrectAnswerOption.module.css"
 
 
 const correctAnswerOption = (props) => {

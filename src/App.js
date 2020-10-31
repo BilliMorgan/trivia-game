@@ -1,4 +1,4 @@
-import QuestionBlock from "../src/conteiners/questionBlock/questionBlock"
+import QuestionBlock from "./containers/QuestionsBlock/QuestionsBlock"
 
 
 function App() {
