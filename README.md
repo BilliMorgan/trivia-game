@@ -33,21 +33,24 @@ The correct answer must be revealed after a user has submitted their answer A us
 
 ## Final Product
 !["Start page"](/images/startpage.png)
+-------------------------------------
 !["Question page"](/images/questionshown.png)
+-------------------------------------
 !["Question with answer shown page"](/images/answershown.png)
+-------------------------------------
 !["Score page"](/images/scoreshown.png)
 
 ## Dependencies
 
-"@testing-library/react": "^11.1.0",
-"@testing-library/user-event": "^12.1.10",
-"react": "^16.14.0",
-"react-dom": "^17.0.1",
-"react-scripts": "4.0.0",
+"@testing-library/react": "^11.1.0"
+"@testing-library/user-event": "^12.1.10"
+"react": "^16.14.0"
+"react-dom": "^17.0.1"
+"react-scripts": "4.0.0"
 "web-vitals": "^0.2.4"
-"@testing-library/jest-dom": "^5.11.5",
-"enzyme": "^3.11.0",
-"enzyme-adapter-react-16": "^1.15.5",
+"@testing-library/jest-dom": "^5.11.5"
+"enzyme": "^3.11.0"
+"enzyme-adapter-react-16": "^1.15.5"
 "react-test-renderer": "^17.0.1"
 
 ## Getting Started
