@@ -65,6 +65,6 @@ The correct answer must be revealed after a user has submitted their answer A us
 Jest and Enzyme are used for testing the components. Tests are run in a Node environment and not in a real browser. For the app, I am testing the components rendering inside a container.
 - To run the tests use `npm test` command
 - To quit the test mode use ctrl + C
-If you get the App.test.js file, please, delete it as it could cause a testing error.
+- If you get the App.test.js file, please, delete it as it could cause a testing error.
 
 Enjoy the game:)
