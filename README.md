@@ -1,71 +1,66 @@
-# Goal
+# Trivia-game
+The app built on React, is simple trivia game with 10 random questions in one round and multiple-choice answers. Only one answer option is available.
+This app was built in aim to fulfill Tandem Apprenticeship Software Engineer challeng. Abut this chalange here:
+https://madeintandem.com/about/apprenticeship-program/
+Goal and requeremts to the app are mentioned below. 
+
+I tried to use as few external dependencies and third-party libraries deliberately, thus UI and UX are built with pure language and logic. Building the app I was thinking about simplicity and reusability. So in the future this app could be used for different question themes and components would be reusable.
+
+For better functionality and appearance I would add a timer to limit the round in the time frame, staying with Bootstrap or Material UI, multipage functionality with React Routes, state manipulation with React Hooks, more dynamic interface with modals. The data storage could be NoSQL database for possible usage with clouds. The page where different gamers could see and compare their results/progress would be necessary as well. 
+
+Third-party dependence Enzyme was used for testing only. Also Enzyme requires React 16. version.
+
+#### My challenges
+My challenges were to figure out how to make appear the question only once per round and how to shuffle the answers. For the first challenge, I found a solution by fetching a random question index from a JSON array with data and pushing it after to the state to avoid repeating this question. Recursion is helpful in this case as checking the multi indexes are needed. The second challenge was fixed by mixing indexes of answer choices randomly 
+
+
+
+## Goal
 Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
-Use creative license in terms of how you want us to see this game. At minimum, the player can view the question(s), the answer choices, the correct answer upon submission, and their score. It could be a user interface (UI), command-line-tool, etc. Feel free to use whatever framework or language you are comfortable with.
-We would also like to see a README which includes any information about how to run the code, any known issues or complexity we should look out for, and any additional features you would like to have added to make your trivia app even more awesome.
-Before you begin, familiarity with the following concepts will be helpful:
-• • •
- Arrays and loops Data manipulation Parsing JSON
- 
 
- # Assumptions
-• • • • •
-
+ ## Challenge requirements
 A round of trivia has 10 Questions
 All questions are multiple-choice questions
-Your score does not need to update in real time
-Results can update on form submit, button click, or any interaction you choose
-We will provide you with the trivia data such as the questions, correct and incorrect answers via a JSON file.
+Gamer score does not need to update in real time
+Results can update on form submit, button click, or any other interaction
+The trivia data such as the questions, correct and incorrect answers are provided via a JSON file.
 
-# Acceptance Criteria
-• • • • • •
+## User stories 
 A user can view questions.
 Questions with their multiple choice options must be displayed one at a time. Questions should not repeat in a round.
 A user can select only 1 answer out of the 4 possible answers.
 The correct answer must be revealed after a user has submitted their answer A user can see the score they received at the end of the round
 
+## Final Product
+!["Start page"](/images/startpage.png)
+!["Question page"](/images/questionshown.png)
+!["Question with answer shown page"](/images/answershown.png)
+!["Score page"](/images/scoreshown.png)
 
+## Dependencies
 
+"@testing-library/react": "^11.1.0",
+"@testing-library/user-event": "^12.1.10",
+"react": "^16.14.0",
+"react-dom": "^17.0.1",
+"react-scripts": "4.0.0",
+"web-vitals": "^0.2.4"
+"@testing-library/jest-dom": "^5.11.5",
+"enzyme": "^3.11.0",
+"enzyme-adapter-react-16": "^1.15.5",
+"react-test-renderer": "^17.0.1"
 
+## Getting Started
+- To start the app, please clone repository in separeta folder
+- Install all dependencies using the `npm install` command.
+- Run the development web server using the `npm start` command.
+- Open trivia-game in a browser with localhost:3000/
+- To quit the app use ctrl + C
 
-# Getting Started with Create React App
+## Testing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jest and Enzyme are used for testing the components. Tests are run in node enviroment and not in a real browser. 
+- To run the tests use `npm test` command
+- To quit the test mode use ctrl + C
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-
+Endjoy the game:)
