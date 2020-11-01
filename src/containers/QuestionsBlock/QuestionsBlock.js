@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Question from "../../components/Question/Question";
-import Answer from "../../components/AnswerOptions/AnswerOptions";
-import Counter from "../../components/Counter/Counter";
-import CorrectAnswerOption from "../../components/CorrectAnswerOption/CorrectAnswerOption";
-import FinalScore from "../../components/FinalScore/FinalScore";
-import Start from "../../components/Start/Start";
+import Question from "../../components/QuestionI/Question";
+import Answer from "../../components/Answers/AnswerOptions";
+import Counter from "../../components/CounterI/Counter";
+import CorrectAnswerOption from "../../components/CorrectAnswer/CorrectAnswerOption";
+import FinalScore from "../../components/FinalScoreI/FinalScore";
+import Start from "../../components/StartI/Start";
 import classes from "./QuestionsBlock.module.css";
 import data from "../../assets/Apprentice_TandemFor400_Data.json";
 
