@@ -16,7 +16,7 @@ My challenges were to figure out how to make appear the question only once per r
 
 
 ## Goal
-Your goal is to create an application that displays trivia questions with multiple-choice answers to select from.
+The goal is to create an application that displays trivia questions with multiple-choice answers to select from.
 
  ## Challenge requirements
 A round of trivia has 10 Questions
