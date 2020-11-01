@@ -1,8 +1,8 @@
 # Trivia-game
 The app built on React, is simple trivia game with 10 random questions in one round and multiple-choice answers. Only one answer option is available.
-This app was built in aim to fulfill Tandem Apprenticeship Software Engineer challeng. Abut this chalange here:
+This app was built in aim to fulfill Tandem Apprenticeship Software Engineer challeng. About challenge find here:
 https://madeintandem.com/about/apprenticeship-program/
-Goal and requeremts to the app are mentioned below. 
+The goal and requirements for the app are mentioned below.
 
 I tried to use as few external dependencies and third-party libraries deliberately, thus UI and UX are built with pure language and logic. Building the app I was thinking about simplicity and reusability. So in the future this app could be used for different question themes and components would be reusable.
 
@@ -54,7 +54,7 @@ The correct answer must be revealed after a user has submitted their answer A us
 "react-test-renderer": "^17.0.1"
 
 ## Getting Started
-- To start the app, please clone repository in separeta folder
+- To start the app, please, clone repository in separeta folder
 - Install all dependencies using the `npm install` command.
 - Run the development web server using the `npm start` command.
 - Open trivia-game in a browser with localhost:3000/
@@ -62,8 +62,9 @@ The correct answer must be revealed after a user has submitted their answer A us
 
 ## Testing
 
-Jest and Enzyme are used for testing the components. Tests are run in node enviroment and not in a real browser. 
+Jest and Enzyme are used for testing the components. Tests are run in a Node environment and not in a real browser. For the app, I am testing the components rendering inside a container.
 - To run the tests use `npm test` command
 - To quit the test mode use ctrl + C
+If you get the App.test.js file, please, delete it as it could cause a testing error.
 
-Endjoy the game:)
+Enjoy the game:)
