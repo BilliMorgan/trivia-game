@@ -54,7 +54,7 @@ The correct answer must be revealed after a user has submitted their answer A us
 "react-test-renderer": "^17.0.1"
 
 ## Getting Started
-- To start the app, please, clone repository in separeta folder
+- To start the app, please, clone repository in separeta folder and cd into it 
 - Install all dependencies using the `npm install` command.
 - Run the development web server using the `npm start` command.
 - Open trivia-game in a browser with localhost:3000/
